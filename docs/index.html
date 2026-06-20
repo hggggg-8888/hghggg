@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>影劇收藏 App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">影劇收藏</p>
+        <h1>我的電影卡牌庫</h1>
+      </div>
+      <div class="topbar-actions">
+        <button id="view-collection" class="active">收藏頁</button>
+        <button id="view-manager">管理頁面</button>
+      </div>
+    </header>
+
+    <main>
+      <section id="collection-section" class="panel active">
+        <div class="card-shell">
+          <div id="movie-card" class="movie-card">
+            <div class="card-face card-front">
+              <div class="poster-wrapper">
+                <img id="poster-image" src="https://via.placeholder.com/320x460?text=Poster" alt="電影海報" />
+              </div>
+              <div class="card-copy">
+                <p class="label">點擊翻轉卡片</p>
+                <h2 id="movie-title">等待你的收藏</h2>
+              </div>
+            </div>
+            <div class="card-face card-back">
+              <div class="card-copy">
+                <h3 id="back-title">電影資訊</h3>
+                <p><strong>導演：</strong><span id="movie-director">-</span></p>
+                <p><strong>上映年份：</strong><span id="movie-year">-</span></p>
+                <p><strong>評分：</strong><span id="movie-rating">-</span></p>
+                <div class="plot-box">
+                  <strong>劇情大綱：</strong>
+                  <p id="movie-plot">點擊管理頁新增或自動填入電影資料。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="saved-list">
+          <h2>你的收藏清單</h2>
+          <div id="movie-list" class="movie-grid"></div>
+        </div>
+      </section>
+
+      <section id="manager-section" class="panel">
+        <div class="manager-card">
+          <h2>新增 / 編輯電影</h2>
+          <form id="movie-form">
+            <div class="field-row">
+              <label>英文片名
+                <input id="input-title" type="text" placeholder="請輸入英文片名" autocomplete="off" />
+              </label>
+              <button id="auto-fill" type="button">自動填入</button>
+            </div>
+
+            <label>導演
+              <input id="input-director" type="text" placeholder="導演名稱" />
+            </label>
+
+            <label>上映年份
+              <input id="input-year" type="text" placeholder="例：2023" />
+            </label>
+
+            <label>劇情大綱
+              <textarea id="input-plot" rows="4" placeholder="劇情簡介"></textarea>
+            </label>
+
+            <label>個人評分
+              <input id="input-rating" type="number" min="0" max="10" step="0.1" placeholder="0 - 10" />
+            </label>
+
+            <div class="form-actions">
+              <button id="save-movie" type="button">儲存影劇</button>
+            </div>
+          </form>
+
+          <div id="manager-status" class="status-bar">在管理頁輸入電影資料，點擊儲存即可準備 JSON。</div>
+          <pre id="json-output" class="json-output"></pre>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
